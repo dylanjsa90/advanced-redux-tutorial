@@ -6,10 +6,10 @@ import {
 
 function selectedSubreddit(state = 'reactjs', action) {
   switch (action.type) {
-    case SELECT_SUBREDDIT:
-      return action.subreddit
-    default:
-      return state
+  case SELECT_SUBREDDIT:
+    return action.subreddit
+  default:
+    return state
   }
 }
 
@@ -17,8 +17,8 @@ function posts(state = {
   isFetching: false,
   didInvalidate: false,
   items: []
-}, actions) {
-  switch(action.type) {
+}, action) {
+  switch (action.type) {
     case INVALIDATE_SUBREDDIT:
       return Object.assign({}, state, {
         didInvalidate: true
@@ -40,7 +40,7 @@ function posts(state = {
   }
 }
 
-function postsBySubreddit(state = { }, action) {
+function postsBySubreddit(state, action) {
   switch (action.type) {
     case INVALIDATE_SUBREDDIT:
     case RECEIVE_POSTS:
